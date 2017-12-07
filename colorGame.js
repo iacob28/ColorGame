@@ -7,26 +7,38 @@ var colors = [
 	"rgb(255, 0, 255)"
 ];
 
-var squares = document.querySelectorAll(".square");
-var pickedColor = colors[3];
-var colorDisplay = document.getElementById("colorDisplay");
+var pickedColor = colors[1];
 
+
+var squares = document.querySelectorAll(".square");
+var colorDisplay = document.querySelector("#colorDisplay");
 colorDisplay.textContent = pickedColor;
+var messageDisplay = document.querySelector("#message")
+
+
 
 for(var i = 0; i < squares.length; i++){
-	// add initial colors to squares
-	squares[i].style.background = colors[i];
+	
+	squares[i].style.backgroundColor = colors[i];
 
-	//add click listeners to squares
+	
 	squares[i].addEventListener("click", function() {
-		//grab color of clicked squares
-		var clickedColor = this.style.background;
-		//compare color to pickedColor
+		
+		var clickedColor = this.style.backgroundColor;
+
 		if(clickedColor === pickedColor) {
-			alert("Correct!");
+			this.style.backgroundColor = changeColor(pickedColor);
+			messageDisplay.textContent = "CORECT !";
 		} else {
-			alert("WRONG!!!");
+			messageDisplay.textContent = "Try Again !";
+			this.style.backgroundColor = "#232323";
 		}
 	});
 }
 
+
+function changeColor(color){
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.backgroundColor = color;
+	}
+}
