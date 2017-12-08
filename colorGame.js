@@ -1,5 +1,5 @@
 var colors = generateRandomColors(6);
-var pickedColor = randomColor();
+var pickedColor = random();
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message")
@@ -33,7 +33,7 @@ function changeColor(color) {
 	}
 }
 
-function randomColor() {
+function random() {
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
 }
