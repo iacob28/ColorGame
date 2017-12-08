@@ -16,16 +16,16 @@ colorDisplay.textContent = pickedColor;
 var messageDisplay = document.querySelector("#message")
 
 
-for(var i = 0; i < squares.length; i++){
-	
+for (var i = 0; i < squares.length; i++) {
+
 	squares[i].style.backgroundColor = colors[i];
 
-	
-	squares[i].addEventListener("click", function() {
-		
+
+	squares[i].addEventListener("click", function () {
+
 		var clickedColor = this.style.backgroundColor;
 
-		if(clickedColor === pickedColor) {
+		if (clickedColor === pickedColor) {
 			this.style.backgroundColor = changeColor(pickedColor);
 			messageDisplay.textContent = "CORECT !";
 		} else {
@@ -36,14 +36,14 @@ for(var i = 0; i < squares.length; i++){
 }
 
 
-function changeColor(color){
-	for(var i = 0; i < squares.length; i++){
+function changeColor(color) {
+	for (var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = color;
 	}
 }
 
 
-function randomColor(){
+function randomColor() {
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
 }
