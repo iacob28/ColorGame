@@ -16,7 +16,6 @@ colorDisplay.textContent = pickedColor;
 var messageDisplay = document.querySelector("#message")
 
 
-
 for(var i = 0; i < squares.length; i++){
 	
 	squares[i].style.backgroundColor = colors[i];
