@@ -1,56 +1,59 @@
-var colors = generateRandomColors(6);
-var pickedColor = random();
+var colors = randomColorArr(6);
+var pickedColor = randomColorPicker();
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
-var messageDisplay = document.querySelector("#message")
-var h1 = document.querySelector("h1");
 colorDisplay.textContent = pickedColor;
+var message = document.querySelector("#message");
+var h1ColorChange = document.querySelector("h1");
+
 
 for (var i = 0; i < squares.length; i++) {
-
 	squares[i].style.backgroundColor = colors[i];
-
+	console.log(squares[i], colors[i]);
 
 	squares[i].addEventListener("click", function () {
-
 		var clickedColor = this.style.backgroundColor;
-
 		if (clickedColor === pickedColor) {
-			this.style.backgroundColor = changeColor(pickedColor);
-			messageDisplay.textContent = "CORECT !";
-			h1.style.backgroundColor = pickedColor;
+			message.textContent = "CORECT !";
+			winColorChangeSquares(pickedColor);
+			h1ColorChange.style.backgroundColor = pickedColor;
 		} else {
-			messageDisplay.textContent = "Try Again !";
+			message.textContent = "TRY AGAIN !";
 			this.style.backgroundColor = "#232323";
 		}
 	});
+
 }
 
-
-function changeColor(color) {
+function winColorChangeSquares(color) {
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = color;
 	}
 }
 
-function random() {
-	var random = Math.floor(Math.random() * colors.length);
-	return colors[random];
+function randomColorPicker() {
+	var i = Math.floor(Math.random() * colors.length);
+	return colors[i];
 }
 
-function generateRandomColors(num) {
+
+function randomColorArr(num) {
 	var arr = [];
-
 	for (var i = 0; i < num; i++) {
-		arr.push(randomColorArr());
+		arr.push(buildRandomColor());
 	}
-
+	
 	return arr;
 }
 
-function randomColorArr() {
+
+function buildRandomColor() {
+	// red from 0 - 255
 	var r = Math.floor(Math.random() * 256);
+	// green from 0 - 255
 	var g = Math.floor(Math.random() * 256);
+	// blue from 0 - 255
 	var b = Math.floor(Math.random() * 256);
+
 	return "rgb(" + r + ", " + g + ", " + b + ")";
 }
