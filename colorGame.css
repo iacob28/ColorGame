@@ -16,10 +16,15 @@ body {
 }
 
 h1 {
+	background: grey;
 	color: white;
+	text-align: center;
+	padding: 100px;
+}
+
+#navBar{
+	background: white;
+	padding: 5px;
 	text-align: center;
 }
 
-span {
-	color: white;
-}
