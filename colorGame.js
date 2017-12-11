@@ -45,6 +45,7 @@ easyMode.addEventListener("click", function () {
 			squares[i].style.display = "none";
 		}
 	}
+	message.textContent = "";
 });
 
 hardMode.addEventListener("click", function () {
@@ -61,6 +62,7 @@ hardMode.addEventListener("click", function () {
 			squares[i].style.display = "block";
 		}
 	}
+	message.textContent = "";
 });
 
 resetButton.addEventListener("click", function () {
