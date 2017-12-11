@@ -1,6 +1,6 @@
 var numSquare = 6;
-var colors = randomColorArr(numSquare);
-var pickedColor = randomColorPicker();
+var colors;
+var pickedColor;
 
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
@@ -11,6 +11,9 @@ var gameModeButtons = document.querySelectorAll(".gameMode");
 
 
 init();
+
+
+
 
 function init(){
 	setupSquares();
