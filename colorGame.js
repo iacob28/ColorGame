@@ -33,7 +33,7 @@ for (var i = 0; i < squares.length; i++) {
 easyMode.addEventListener("click", function () {
 	hardMode.classList.remove("selected");
 	easyMode.classList.add("selected");
-	h1ColorChange.style.backgroundColor = "grey";
+	h1ColorChange.style.backgroundColor = "steelblue";
 	numSquare = 3;
 	colors = randomColorArr(numSquare);
 	pickedColor = randomColorPicker();
@@ -51,7 +51,7 @@ easyMode.addEventListener("click", function () {
 hardMode.addEventListener("click", function () {
 	hardMode.classList.add("selected");
 	easyMode.classList.remove("selected");
-	h1ColorChange.style.backgroundColor = "grey";
+	h1ColorChange.style.backgroundColor = "steelblue";
 	numSquare = 6;
 	colors = randomColorArr(numSquare);
 	pickedColor = randomColorPicker();
@@ -74,7 +74,7 @@ resetButton.addEventListener("click", function () {
 		squares[i].style.backgroundColor = colors[i];
 	}
 
-	h1ColorChange.style.backgroundColor = "grey";
+	h1ColorChange.style.backgroundColor = "steelblue";
 	message.textContent = "";
 	resetButton.textContent = "New Color";
 });
