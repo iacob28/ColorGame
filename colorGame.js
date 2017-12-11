@@ -47,6 +47,10 @@ for (var i = 0; i < gameModeButtons.length; i++) {
 	});
 }
 
+resetButton.addEventListener("click", function () {
+	reset();
+});
+
 function reset() {
 	colors = randomColorArr(numSquare);
 	pickedColor = randomColorPicker();
@@ -65,10 +69,6 @@ function reset() {
 	message.textContent = "";
 	resetButton.textContent = "New Color";
 }
-
-resetButton.addEventListener("click", function () {
-	reset();
-});
 
 function winColorChangeSquares(color) {
 	for (var i = 0; i < squares.length; i++) {
