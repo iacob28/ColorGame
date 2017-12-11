@@ -4,47 +4,59 @@ var pickedColor = randomColorPicker();
 
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
-colorDisplay.textContent = pickedColor;
 var message = document.querySelector("#message");
 var h1ColorChange = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
 var gameModeButtons = document.querySelectorAll(".gameMode");
 
 
-for (var i = 0; i < squares.length; i++) {
-	squares[i].style.backgroundColor = colors[i];
+init();
 
-	squares[i].addEventListener("click", function () {
-		var clickedColor = this.style.backgroundColor;
-		if (clickedColor === pickedColor) {
-			message.textContent = "Corect !";
-			winColorChangeSquares(pickedColor);
-			h1ColorChange.style.backgroundColor = pickedColor;
-			resetButton.textContent = "Play again?";
-		} else {
-			message.textContent = "Try Again !";
-			this.style.backgroundColor = "#232323";
-		}
-	});
-
+function init(){
+	setupSquares();
+	setupGameModeButtons();
+	reset();
 }
 
-for (var i = 0; i < gameModeButtons.length; i++) {
-	gameModeButtons[i].addEventListener("click", function () {
-		gameModeButtons[0].classList.remove("selected");
-		gameModeButtons[1].classList.remove("selected");
-		this.classList.add("selected");
+function setupSquares(){
 
-		this.textContent === "Easy Mode" ? numSquare = 3 : numSquare = 6; //ternary operator javascript
-		// if (this.textContent === "Easy Mode") {
-		// 	numSquare = 3;
-		// } else {
-		// 	numSquare = 6;
-		// }
+	for (var i = 0; i < squares.length; i++) {
+		
+		squares[i].addEventListener("click", function () {
+			var clickedColor = this.style.backgroundColor;
+			if (clickedColor === pickedColor) {
+				message.textContent = "Corect !";
+				winColorChangeSquares(pickedColor);
+				h1ColorChange.style.backgroundColor = pickedColor;
+				resetButton.textContent = "Play again?";
+			} else {
+				message.textContent = "Try Again !";
+				this.style.backgroundColor = "#232323";
+			}
+		});
+	
+	}
+}
 
-		reset();
+function setupGameModeButtons(){
 
-	});
+	for (var i = 0; i < gameModeButtons.length; i++) {
+		gameModeButtons[i].addEventListener("click", function () {
+			gameModeButtons[0].classList.remove("selected");
+			gameModeButtons[1].classList.remove("selected");
+			this.classList.add("selected");
+	
+			this.textContent === "Easy Mode" ? numSquare = 3 : numSquare = 6; //ternary operator javascript
+			// if (this.textContent === "Easy Mode") {
+			// 	numSquare = 3;
+			// } else {
+			// 	numSquare = 6;
+			// }
+	
+			reset();
+	
+		});
+	}
 }
 
 resetButton.addEventListener("click", function () {
