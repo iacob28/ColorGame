@@ -6,7 +6,7 @@ body {
 
 #colorDisplay{
 	font-weight: 700;
-	font-size: 40px;
+	font-size: 60px;
 }
 
 .square {
@@ -34,12 +34,14 @@ h1 {
 	text-transform: uppercase;
 	font-weight: 400;
 	margin: 0;
+	font-size: 40px;
 }
 
 #navBar{
 	background: white;
-	height: 30px;
-	text-align: center;	
+	height: 35px;
+	text-align: center;
+	
 }
 
 .selected{
